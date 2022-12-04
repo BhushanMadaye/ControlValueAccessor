@@ -40,6 +40,13 @@ export class InputControlComponent implements ControlValueAccessor {
     this.value = value
   }
 
+  public changed ( event: Event ): void {
+		const value: string =
+			( <HTMLInputElement>event.target ).value;
+
+		this.onChange( value );
+	}
+
   /** Responsible for detecting change event.
   * Value in formcontrol changed after declaration is received in this method.
   * Working - Needs a function to be assigned to and hooked with onChange method.

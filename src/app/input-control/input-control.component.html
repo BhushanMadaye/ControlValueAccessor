@@ -4,6 +4,6 @@
 
 <input
   [ngClass]="{'cursor-not-allowed' : disabled, 'border-red-500' : formField?.invalid && formField?.touched}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-  [id]="id" type="text" [placeholder]="placeholder" [(ngModel)]="value" [disabled]="disabled" (input)="onChange($event.target.value)" (blur)="onTouch()">
+  [id]="id" type="text" [placeholder]="placeholder" [(ngModel)]="value" [disabled]="disabled" (input)="changed($event)" (blur)="onTouch()">
 
 <app-field-errors [formField]="formField"></app-field-errors>

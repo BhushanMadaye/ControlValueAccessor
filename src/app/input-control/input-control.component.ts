@@ -1,5 +1,5 @@
 import { Component, forwardRef, Input, OnInit } from '@angular/core';
-import { AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidationErrors, Validator } from '@angular/forms';
+import { AbstractControl, ControlValueAccessor, FormControl, FormGroup, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidationErrors, Validator } from '@angular/forms';
 
 @Component({
   selector: 'app-input-control',
@@ -23,6 +23,8 @@ export class InputControlComponent implements ControlValueAccessor {
   @Input() placeholder = '';
   @Input() id = '';
   @Input() label = '';
+  @Input() parentForm: FormGroup;
+	@Input() fieldName: string;
 
   onChange: any = () => { }
   onTouch: any = () => { }
@@ -30,6 +32,10 @@ export class InputControlComponent implements ControlValueAccessor {
   val = ""
   value = '';
   hasError: boolean;
+
+  get formField (): FormControl {
+		return this.parentForm?.get(this.fieldName) as FormControl;
+	}
 
   /** Responsible for emiting value patched to formcontrol while fb is declared */
   writeValue(value: any) {

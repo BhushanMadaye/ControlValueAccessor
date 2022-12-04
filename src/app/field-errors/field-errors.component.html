@@ -1,0 +1,13 @@
+<ng-container *ngIf="formField?.touched">
+  <p class="text-red-500 text-xs italic">
+    <ng-container *ngIf="formField?.hasError('required')">
+      This is a required field.
+    </ng-container>
+  </p>
+
+  <p class="text-red-500 text-xs italic">
+    <ng-container *ngIf="formField?.hasError('email')">
+      Email Invalid.
+    </ng-container>
+  </p>
+</ng-container>

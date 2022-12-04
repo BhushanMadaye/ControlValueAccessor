@@ -4,13 +4,10 @@
     <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" [formGroup]="myForm">
       <div class="mb-4">
         <app-input-control formControlName="name" [id]="'username'" [placeholder]="'Name'" [label]="'Name'" [parentForm]="myForm" fieldName="name"></app-input-control>
-        <p *ngIf="myForm.get('name')?.hasError('required') && myForm.get('name')?.touched" class="text-red-500 text-xs italic">Name required</p>
       </div>
 
       <div class="mb-6">
         <app-input-control formControlName="email" [id]="'email'" [placeholder]="'Email ID'" [label]="'Email'" [parentForm]="myForm" fieldName="email"></app-input-control>
-        <p *ngIf="myForm.get('email')?.hasError('required') && myForm.get('email')?.touched" class="text-red-500 text-xs italic">Email Required</p>
-        <p *ngIf="myForm.get('email')?.hasError('email') && myForm.get('email')?.touched" class="text-red-500 text-xs italic">Email Invalid</p>
       </div>
       <div class="flex items-center justify-between gap-4">
         <button (click)="submitData()" class="flex-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">

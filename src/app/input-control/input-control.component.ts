@@ -29,9 +29,7 @@ export class InputControlComponent implements ControlValueAccessor {
   onChange: any = () => { }
   onTouch: any = () => { }
   disabled: boolean;
-  val = ""
   value = '';
-  hasError: boolean;
 
   get formField (): FormControl {
 		return this.parentForm?.get(this.fieldName) as FormControl;
@@ -58,13 +56,4 @@ export class InputControlComponent implements ControlValueAccessor {
     this.disabled = isDisabled
   }
 
-  /** Validation */
-  // validate(control: AbstractControl): ValidationErrors | null {
-  //   if (control.invalid && control.touched) {
-  //     this.hasError = true;
-  //   } else {
-  //     this.hasError = false;
-  //   }
-  //   return control.errors;
-  // }
 }
